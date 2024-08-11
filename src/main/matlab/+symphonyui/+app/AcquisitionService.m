@@ -3,6 +3,7 @@ classdef AcquisitionService < handle
     events (NotifyAccess = private)
         SelectedProtocol
         SetProtocolProperties
+        SetProtocolFigureHandlerManager
         ChangedControllerState
         AddedProtocolPreset
         RemovedProtocolPreset
@@ -78,6 +79,11 @@ classdef AcquisitionService < handle
             obj.session.protocol.setPropertyMap(map);
             obj.session.protocol.closeFigures();
             notify(obj, 'SetProtocolProperties');
+        end
+
+        function setProtocolFigureHandlerManager(obj, handle)
+            obj.session.protocol.setFigureHandlerManager(handle);
+            notify(obj, 'SetProtocolFigureHandlerManager');
         end
 
         function p = getProtocolPreview(obj, panel)
