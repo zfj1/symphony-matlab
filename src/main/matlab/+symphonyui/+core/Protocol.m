@@ -261,7 +261,6 @@ classdef Protocol < handle
         end
 
         function setFigureHandlerManager(obj, handle)
-            delete(obj.figureHandlerManager);
             obj.figureHandlerManager = handle;
         end
 
