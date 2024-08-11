@@ -260,6 +260,11 @@ classdef Protocol < handle
             obj.figureHandlerManager.closeFigures();
         end
 
+        function setFigureHandlerManager(obj, handle)
+            delete(obj.figureHandlerManager);
+            obj.figureHandlerManager = handle;
+        end
+
         function [tf, msg] = isValid(obj) %#ok<MANU>
             % Override to return true/false to indicate if this protocol is valid and should be able to run
             
